@@ -237,6 +237,12 @@ jobs:
           path: "${{ env.ARTIFACTS_PATH }}/${{ env.ARTIFACT_NAME }}.zip"
 
       - name: Upload pkg (macOS)
+      - name: Upload raw component (macOS, unsigned)
+        if: ${{ runner.os == 'macOS' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ env.ARTIFACT_NAME }}-AU-unsigned
+          path: ${{ env.AU_PATH }}
         if: ${{ runner.os == 'macOS' }}
         uses: actions/upload-artifact@v7
         with:
