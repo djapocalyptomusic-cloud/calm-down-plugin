@@ -226,13 +226,12 @@ jobs:
         if: ${{ runner.os == 'Windows' }}
         uses: actions/upload-artifact@v7
         with:
-         - name: Upload pkg (macOS)
+      - name: Upload pkg (macOS)
         if: ${{ runner.os == 'macOS' }}
         uses: actions/upload-artifact@v7
         with:
           name: ${{ env.ARTIFACT_NAME }}.pkg
           path: packaging/${{ env.ARTIFACT_NAME }}.pkg
-
       - name: Upload raw component (macOS, unsigned)
         if: ${{ runner.os == 'macOS' }}
         uses: actions/upload-artifact@v7
